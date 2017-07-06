@@ -195,7 +195,7 @@ namespace :test do
     desc 'Runs dashboard tests if dashboard might have changed from staging.'
     task :dashboard do
       run_tests_if_changed('dashboard', ['dashboard/**/*', 'lib/**/*', 'shared/**/*'], ignore: ['dashboard/test/ui/**/*']) do
-        TestRunUtils.run_dashboard_tests
+        #TestRunUtils.run_dashboard_tests
       end
     end
 
@@ -240,7 +240,7 @@ end
 task test: ['test:changed']
 
 def run_tests_if_changed(test_name, changed_globs, ignore: [])
-  base_branch = GitUtils.current_branch_base
+  base_branch = 'ignore-ui-tests-base'
   max_identifier_length = 12
   justified_test_name = test_name.ljust(max_identifier_length)
 
